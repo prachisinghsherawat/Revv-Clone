@@ -18,6 +18,8 @@ Project: make a clone of https://www.revv.co.in/ site
 - Signin page
 ![signup](https://user-images.githubusercontent.com/96073111/159723928-97fba270-91ab-4ed6-acb5-6cbb9e9c042e.png)<br><br><br>
 
+- Footer page
+![footer](https://user-images.githubusercontent.com/96073111/159724837-7624711a-a075-4770-b262-bee56522004f.png)<br><br><br>
 
 - Product page
 ![product page](https://user-images.githubusercontent.com/96073111/159723216-bb83283b-ddff-4692-94d4-42acbe01fcff.png) <br><br><br>
