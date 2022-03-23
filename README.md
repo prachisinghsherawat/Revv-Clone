@@ -1,13 +1,15 @@
 # Revv-Clone
 
-Project: make a clone of https://www.ubuy.co.in/ site
+Project: make a clone of https://www.revv.co.in/ site
 
-*This is an E-Commerce website which speciaizes in selling All kinds of projects like Electronics, Home goods, books, etc. *
+*This is a rental car website which provides you varieties of four wheeler cars on rent  *
 
 ## Technology Stack Used
 - JavaScript
 - CSS
 - HTML
+- Bootstrap
+- Heroku For making API 
 
 #ScreenShots
 - Home page
@@ -29,7 +31,7 @@ Project: make a clone of https://www.ubuy.co.in/ site
 ![image](https://user-images.githubusercontent.com/95856642/158948688-8d092fb9-8c45-477c-8c05-05b0ac32897c.png)
   
   ### End Notes 📑
-In this project we were tried to achieve a near to perfect clone of the original website as much as possible. This entire journey of has given us experiences and we have learned lots of things by applying to the real website and it gave us a lot of confidence, Because this was over first project where we only learn HTML, CSS and basic JavaScript. If we have more time we can able to add more products.
+In this project we were tried to achieve a near to perfect clone of the original website as much as possible. This entire journey of has given us experiences and we have learned lots of things by applying to the real website and it gave us a lot of confidence, Because this was second project where we only learn HTML, CSS ,api Fetching and advance JavaScript. If we have more time we can able to add more products.
 
 ### Limitations:
 All pages are not responsive yet , those pages are might not be properly visible on small screen devices.
@@ -37,15 +39,18 @@ All pages are not responsive yet , those pages are might not be properly visible
   
   ## Team Members and Contributors 😇 :
 
-- 👤 Bhavesh Suthar
-  Github: https://github.com/BhaveshSuthar00
+- 👤 Danish Ahmad
+  Github: https://github.com/danish4git/
   
-- 👤 SureshYarram
-  Github: https://github.com/SureshYarram
+- 👤 Dhruv Bhawsar
+  Github: https://github.com/DhruvBhawsarI
   
-- 👤 Santosh
-  Github: https://github.com/Santosh844
+- 👤 Mubarak Jinabade
+  Github: https://github.com/mubarak7785
   
-- 👤 Ankit 
-  Github: https://github.com/thakurankit6767 
+- 👤 Prashant Maurya
+  Github: https://github.com/prashant0912
+  
+- 👤 Abdullah Ansari
+ Github: https://github.com/Abdullah-FSWD
   
