@@ -12,20 +12,20 @@ Project: make a clone of https://www.revv.co.in/ site
 - Heroku For making API  <br><br>
 
 #ScreenShots
-- Home page
+- Home page <br>
 ![home page](https://user-images.githubusercontent.com/96073111/159722929-828e338f-f409-49c2-b29b-5eb73ca5fe02.png) <br><br><br>
 
-- Signin page
-![signup](https://user-images.githubusercontent.com/96073111/159723928-97fba270-91ab-4ed6-acb5-6cbb9e9c042e.png)<br><br><br>
-
-- Footer page
+- Footer page <br>
 ![footer](https://user-images.githubusercontent.com/96073111/159724837-7624711a-a075-4770-b262-bee56522004f.png)<br><br><br>
 
-- Product page
+- Signin page <br>
+![signup](https://user-images.githubusercontent.com/96073111/159723928-97fba270-91ab-4ed6-acb5-6cbb9e9c042e.png)<br><br><br>
+
+- Product page <br>
 ![product page](https://user-images.githubusercontent.com/96073111/159723216-bb83283b-ddff-4692-94d4-42acbe01fcff.png) <br><br><br>
 
   
-- Payment page
+- Payment page <br>
 ![revv](https://user-images.githubusercontent.com/96073111/159723450-982ca91f-ac70-46de-8c8b-15392a9c4bdb.png) <br><br>
 
   
