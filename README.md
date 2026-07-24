@@ -35,21 +35,4 @@ In this project we were tried to achieve a near to perfect clone of the original
 ### Limitations:
 All pages are not responsive yet , those pages are might not be properly visible on small screen devices.
 (Recomended Resolution: 1366 x 768 )
-  
-  ## Team Members and Contributors 😇 :
-
-- 👤 Danish Ahmad
-  Github: https://github.com/danish4git/
-  
-- 👤 Dhruv Bhawsar
-  Github: https://github.com/DhruvBhawsarI
-  
-- 👤 Mubarak Jinabade
-  Github: https://github.com/mubarak7785
-  
-- 👤 Prashant Maurya
-  Github: https://github.com/prashant0912
-  
-- 👤 Abdullah Ansari
- Github: https://github.com/Abdullah-FSWD
-  
+    
