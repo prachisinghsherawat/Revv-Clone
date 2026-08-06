@@ -4,13 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Payment</title>
+    <title>Checkout | Revv</title>
 
-    <script
-      src="https://kit.fontawesome.com/e424a3d0f0.js"
+    <!-- Was a personal Font Awesome kit script whose domain allow-list rejected
+         this origin, erroring on every load. The stylesheet the other pages use
+         supplies the same icons. -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
-    ></script>
+    />
     <link rel="stylesheet" href="./styles/checkout.css" />
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
   </head>
   <body>
     <div id="navbar"></div>
@@ -21,10 +28,7 @@
     <div class="container">
       <div id="paypay">
         <h2>Payment</h2>
-        <h2>
-          Amount ₹<span id="payam"></span
-          </i>
-        </h2>
+        <h2>Amount ₹<span id="payam"></span></h2>
       </div>
       <form method="post">
         <h4>Account Details</h4>
@@ -113,53 +117,34 @@
             <i class="fas fa-credit-card icon"></i>
           </div>
           <div class="input-box">
-            <select name="" id="">
+            <select id="expMonth" aria-label="Expiry month">
               <option value="">MM</option>
-              <option value="">01</option>
-              <option value="">02</option>
-              <option value="">03</option>
-              <option value="">04</option>
-              <option value="">05</option>
-              <option value="">06</option>
-              <option value="">07</option>
-              <option value="">08</option>
-              <option value="">09</option>
-              <option value="">10</option>
-              <option value="">11</option>
-              <option value="">12</option>
-              <option value="">13</option>
-              <option value="">14</option>
-              <option value="">15</option>
-              <option value="">16</option>
-              <option value="">17</option>
-              <option value="">18</option>
-              <option value="">19</option>
-              <option value="">20</option>
-              <option value="">21</option>
-              <option value="">22</option>
-              <option value="">23</option>
-              <option value="">24</option>
-              <option value="">25</option>
-              <option value="">26</option>
-              <option value="">27</option>
-              <option value="">28</option>
-              <option value="">29</option>
-              <option value="">30</option>
-              <option value="">31</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
             </select>
 
-            <select name="" id="">
+            <select id="expYear" aria-label="Expiry year">
               <option value="">YY</option>
-              <option value="">21</option>
-              <option value="">22</option>
-              <option value="">23</option>
-              <option value="">24</option>
-              <option value="">25</option>
-              <option value="">26</option>
-              <option value="">27</option>
-              <option value="">28</option>
-              <option value="">29</option>
-              <option value="">30</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+              <option value="32">32</option>
+              <option value="33">33</option>
+              <option value="34">34</option>
+              <option value="35">35</option>
             </select>
           </div>
         </div>
@@ -167,7 +152,7 @@
         <div class="input-group">
           <div class="input-box">
             <button id="pay" type="submit">
-              PAY NOW <span id="payam"> </span>
+              PAY NOW ₹<span id="paybtnam"></span>
             </button>
           </div>
         </div>
@@ -190,15 +175,24 @@
       </div>
     </div>
     <div id="footer"></div>
+
+    <script type="module">
+      import navbar from "./component/navbar.js";
+      import footer from "./component/footer.js";
+
+      document.getElementById("navbar").innerHTML = navbar();
+      document.getElementById("footer").innerHTML = footer();
+
+      // No amount means the user never came through the booking flow.
+      const total = JSON.parse(localStorage.getItem("totalPrice") || "null");
+      if (total === null) {
+        window.location.replace("./index.html");
+      }
+
+      const amount = Number(total || 0).toLocaleString("en-IN");
+      document.getElementById("payam").textContent = amount;
+      document.getElementById("paybtnam").textContent = amount;
+    </script>
+    <script src="./js/checkout.js"></script>
   </body>
-  <script src="./js/checkout.js"></script>
-
 </html>
-<script>
-  var total = JSON.parse(localStorage.getItem("totalPrice"));
-  document.getElementById("payam").textContent = total;
-
-  document.getElementById("pay").addEventListener("click", redirect);
-
-  
-</script>

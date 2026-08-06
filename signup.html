@@ -136,45 +136,31 @@
   </body>
 </html>
 <script type="module">
-  document.querySelector("#btn").addEventListener("click", Register);
-
-  async function Register(event) {
-    try {
-      event.preventDefault();
-      var Register_data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        password: document.getElementById("password").value,
-        username: document.getElementById("username").value,
-        mobile: document.getElementById("mobile").value,
-        description: document.getElementById("description").value,
-      };
-
-      Register_data = JSON.stringify(Register_data);
-      console.log(Register_data);
-      window.location.href = "login.html";
-    } catch (er) {
-      console.log(er);
-    }
-
-    let reg_api = `https://masai-api-mocker.herokuapp.com/auth/register`;
-
-    let response = await fetch(reg_api, {
-      method: "POST",
-      body: Register_data,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    let data = await response.json();
-    console.log(data);
-    if (data.error == false) {
-      alert(data.message);
-      window.location.href = "login.html";
-    }
-  }
-
   import navbar from "./component/navbar.js";
-  let container22 = document.querySelector(".container22"); // for navbar reference:
-  container22.innerHTML = navbar();
+  import { registerUser } from "./js/auth.js";
+
+  document.querySelector(".container22").innerHTML = navbar();
+
+  // The old handler redirected to login.html before its own fetch ran, so the
+  // request was cancelled every time and no account was ever created.
+  document.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const result = registerUser({
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+      username: document.getElementById("username").value,
+      mobile: document.getElementById("mobile").value,
+      description: document.getElementById("description").value,
+    });
+
+    if (!result.ok) {
+      alert(result.message);
+      return;
+    }
+
+    alert("Account created. Please log in.");
+    window.location.href = "./login.html";
+  });
 </script>

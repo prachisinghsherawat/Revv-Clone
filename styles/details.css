@@ -41,7 +41,7 @@ body {
 
 /*center the heading and lines*/
 
-#h2115 {
+.h2115 {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -56,8 +56,8 @@ body {
 
 /*add and adjust the lines*/
 
-#h2115:before,
-#h2115:after {
+.h2115:before,
+.h2115:after {
   content: "";
   border-top: 2px solid;
   margin: 0 20px 0 0;
@@ -67,7 +67,7 @@ body {
 
 /*add spacing between heading and lines*/
 
-#h2115:after {
+.h2115:after {
   margin: 0 0 0 20px;
 }
 
@@ -155,7 +155,7 @@ td {
   margin-left: 20px;
 }
 /* --------------------------------- */
-#total115 {
+.total115 {
   font-size: 18px;
   font-weight: 400;
 }

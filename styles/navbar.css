@@ -14,6 +14,16 @@ body {
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   border: transparent;
 }
+.nav_logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+/* Qualified so it outranks the lighter weight `.rnav > div > span` sets. */
+.rnav > div > span.nav_user {
+  margin-right: 12px;
+  font-weight: bold;
+}
 .rnav > div > span {
   font-weight: lighter;
 }

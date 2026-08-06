@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 
-#box01 > div {
+.box01 > div {
   margin-bottom: 20px;
 }
 
@@ -151,7 +151,7 @@
   border: 2px solid rgb(204, 201, 201);
 }
 
-#apple {
+.apple {
   height: 100%;
   width: 15%;
   font-size: 35px;
@@ -179,7 +179,7 @@
   margin-left: 2%;
 }
 
-#greyH {
+.greyH {
   /* margin-bottom: 4%; */
   font-size: 35px;
   color: rgb(135, 136, 138);
@@ -197,7 +197,7 @@
   border-radius: 9px;
 }
 
-#greydabba {
+.greydabba {
   color: rgb(61, 59, 59);
   font-size: 15px;
   line-height: 27px;

@@ -4,19 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script
-      src="https://kit.fontawesome.com/683b4b40e3.js"
-      c#rossorigin="anonymous"
-    ></script>
+    <title>Review your booking | Revv</title>
     <link rel="stylesheet" href="./styles/details.css" />
     <link rel="stylesheet" href="./styles/navbar.css" />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="./styles/footer.css" />
     <link
       rel="stylesheet"
@@ -33,7 +23,7 @@
         <div id="box1">
           <div id="car">
             <div id="insideC1">
-              <p id="cartitle">Hyundai Elite i20 AT</p>
+              <p id="cartitle"></p>
             </div>
             <div id="insideC2">
               <img id="carimage" src="" alt="" />
@@ -46,21 +36,21 @@
               </div>
               <div>
                 <p id="seats"></p>
-                <p id="transmission">#####</p>
-                <p id="fuel">#####</p>
+                <p id="transmission"></p>
+                <p id="fuel"></p>
               </div>
             </div>
           </div>
           <div id="booking">
-            <h2 id="h2115">BOOKING DETAILS</h2>
+            <h2 class="h2115">BOOKING DETAILS</h2>
             <div id="insideB1">
-              <p id="startdate">Wed, 26 Jan 12:00</p>
+              <p id="startdate"></p>
               <p>-<span>TO</span>-</p>
-              <p id="enddate">Sat, 29 Jan 17:30</p>
+              <p id="enddate"></p>
             </div>
             <div id="insideB2">
               <div>
-                <p id="cityname">##########</p>
+                <p id="cityname"></p>
                 <p>Change City</p>
               </div>
             </div>
@@ -74,7 +64,7 @@
         </div>
         <!-- .-------------------------------------------------------------------------BOX 2 ------------------------------ -->
         <div>
-          <h2 id="h2115">FARE DETAILS</h2>
+          <h2 class="h2115">FARE DETAILS</h2>
           <!-- box 2 Table 1 -->
           <table>
             <tr>
@@ -111,10 +101,10 @@
             <hr />
             <table>
               <tr>
-                <td id="total115" width="250px">Total</td>
-                <td id="total115">
+                <td class="total115" width="250px">Total</td>
+                <td class="total115">
                   <i class="fas fa-rupee-sign"></i>
-                  <span id="total_price">#####</span>
+                  <span id="total_price"></span>
                 </td>
               </tr>
             </table>
@@ -152,7 +142,7 @@
         </div>
         <!-- -----------------------------------------------------------BOX 3 --------------------------------------------------->
         <div>
-          <h2 id="h2115">IMPORTANT POINTS TO REMEMBER</h2>
+          <h2 class="h2115">IMPORTANT POINTS TO REMEMBER</h2>
           <!-- box 3 Table 1 -->
           <table>
             <tr>
@@ -206,59 +196,66 @@
   </body>
 </html>
 <script type="module">
-  var carObj = JSON.parse(localStorage.getItem("car_details"));
-
-  var title = document.querySelector("#cartitle");
-  title.textContent = carObj.name;
-
-  var fuel = document.querySelector("#fuel");
-  fuel.textContent = carObj.fuel;
-
-  var seats = document.querySelector("#seats");
-  seats.textContent = `seats ${carObj.seats}`;
-
-  var transmission = document.querySelector("#transmission");
-  transmission.textContent = carObj.transmission;
-
-  var image = document.querySelector("#carimage");
-  image.src = carObj.url;
-
-  var price = document.querySelector("#price");
-  price.textContent = carObj.price;
-
-  var total_price = Number(carObj.price) + 1400;
-
-  document.querySelector("#total_price").textContent = total_price;
-
-  // -------------------------------------------------------------------
-
-  var locationObj = JSON.parse(localStorage.getItem("bookingdata"));
-
-  var startdate = document.querySelector("#startdate");
-  startdate.textContent = locationObj.startdate;
-
-  var enddate = document.querySelector("#enddate");
-  enddate.textContent = locationObj.enddate;
-
-  var cityname = document.querySelector("#cityname");
-  cityname.textContent = locationObj.cityname;
-
-  // ---------------------------------------------------------------------
-
-  document.querySelector("#paybtn").addEventListener("click", payment);
-
-  function payment() {
-    setTimeout(() => {
-      window.location.href = "payment.html";
-    }, 3000);
-
-    localStorage.setItem("totalPrice", total_price);
-  }
   import navbar from "./component/navbar.js";
-  let container22 = document.querySelector(".container22"); // for navbar reference:
-  container22.innerHTML = navbar();
-
   import footer from "./component/footer.js";
-  let container23 = document.querySelector(".container23"); // for navbar reference:
-  container23.innerHTML = footer();
+
+  document.querySelector(".container22").innerHTML = navbar();
+  document.querySelector(".container23").innerHTML = footer();
+
+  const carObj = JSON.parse(localStorage.getItem("car_details") || "null");
+  const locationObj = JSON.parse(localStorage.getItem("bookingdata") || "null");
+
+  // Landing here directly — bookmark, refresh after clearing storage — used to
+  // throw on the first property read and leave a page of placeholder hashes.
+  if (!carObj || !locationObj) {
+    window.location.replace(carObj ? "./index.html" : "./cars.html");
+  }
+
+  const car = carObj || {};
+  const search = locationObj || {};
+
+  const formatDate = (value) => {
+    const date = new Date(value);
+    if (isNaN(date)) return value || "--";
+    return date.toLocaleDateString("en-IN", {
+      weekday: "short",
+      day: "numeric",
+      month: "short",
+    });
+  };
+
+  document.querySelector("#cartitle").textContent = car.name;
+  document.querySelector("#fuel").textContent = car.fuel;
+  document.querySelector("#seats").textContent = `${car.seats} seats`;
+  document.querySelector("#transmission").textContent = car.transmission;
+
+  const image = document.querySelector("#carimage");
+  if (car.url) {
+    // Assigning an undefined url makes the browser request "/undefined".
+    image.src = car.url;
+    image.alt = car.name || "";
+  }
+
+  const DELIVERY_FEE = 400;
+  const SECURITY_DEPOSIT = 1000;
+  const total_price = Number(car.price) + DELIVERY_FEE + SECURITY_DEPOSIT;
+
+  document.querySelector("#price").textContent = Number(
+    car.price
+  ).toLocaleString("en-IN");
+  document.querySelector("#total_price").textContent =
+    total_price.toLocaleString("en-IN");
+
+  document.querySelector("#startdate").textContent = formatDate(
+    search.startdate
+  );
+  document.querySelector("#enddate").textContent = formatDate(search.enddate);
+  document.querySelector("#cityname").textContent = search.cityname;
+
+  document.querySelector("#paybtn").addEventListener("click", () => {
+    // Store first, then navigate: the old code set the price *after* kicking
+    // off the redirect and padded it with a 3s delay for no reason.
+    localStorage.setItem("totalPrice", JSON.stringify(total_price));
+    window.location.href = "./payment.html";
+  });
 </script>

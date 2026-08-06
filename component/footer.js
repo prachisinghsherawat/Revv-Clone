@@ -3,7 +3,7 @@ function footer() {
     <div class="blackwala">
         <h1>Serviceable cities</h1>
         <div class="threebox">
-            <div id="box01">
+            <div class="box01">
                 <div>
                     <li> Car Rental in Bangalore</li>
                 </div>
@@ -30,7 +30,7 @@ function footer() {
                 </div>
             </div>
 
-            <div id="box01">
+            <div class="box01">
                 <div>
                     <li> Car Rental in Bhubaneswar </li>
                 </div>
@@ -57,7 +57,7 @@ function footer() {
                 </div>
             </div>
 
-            <div id="box01">
+            <div class="box01">
                 <div>
                     <li>Car Rental in Surat</li>
                 </div>
@@ -83,7 +83,7 @@ function footer() {
     <div class="whitewala">
         <div>
             <div class="revimgbox">
-                <img src="https://www.revv.co.in/grapheneImages/newopen/logo.svg" alt="" height="100%"
+                <img src="./images/revv-logo.svg" alt="Revv" height="100%"
                     width="100%">
             </div>
             <p id="greyp">© 2022 Primemover Mobility Technologies Pvt Ltd. All rights reserved</p>
@@ -111,7 +111,7 @@ function footer() {
                 <h2>Download the Revv App!</h2>
 
                 <div class="bdabox">
-                    <div id="apple">
+                    <div class="apple">
                         <i class="fab fa-apple"></i>
                     </div>
 
@@ -121,7 +121,7 @@ function footer() {
                 </div>
 
                 <div class="bdabox">
-                    <div id="apple">
+                    <div class="apple">
                         <img src="https://pbs.twimg.com/profile_images/1455293572001910789/WSxOmUaQ_400x400.jpg"
                             alt="" height="100%" width="100%">
                     </div>
@@ -138,8 +138,8 @@ function footer() {
 
     <div class="dabba">
 
-        <h1 id="greyH">Safe, Sanitized Car Subscription You Can Count On</h1>
-        <div id="greydabba">
+        <h1 class="greyH">Safe, Sanitized Car Subscription You Can Count On</h1>
+        <div class="greydabba">
             
             <p>Car subscription from Revv provides the flexibility of having a car anytime you want, as well as the assurance of a sanitized and virus free vehicle for your own self drive. The car sanitization process encompasses all the preventive hygiene best practices directed by the World Health Organization (WHO) and is diligently conducted for each vehicle delivered to the car subscribers. The safety measures that are implemented consist of:</p>
             <li>Industrial standards sanitization and disinfection before delivery for all surfaces of the vehicle</li>
@@ -149,18 +149,18 @@ function footer() {
 
         </div>
 
-        <h1 id="greyH">Self-Drive Car Rentals</h1>
-        <div id="greydabba">
+        <h1 class="greyH">Self-Drive Car Rentals</h1>
+        <div class="greydabba">
             <p>Whether you’re planning a road trip outside the city or looking for a convenient way to cruise around when you’re out of town, Revv is here to ease your travel woes. You can pick one of Revv’s convenient car rental options to drive down to the nearby beach or to manoeuvre through traffic as you head from one important business meeting to the next. With a self-drive car rental from Revv, you have the freedom to move around and explore places at your own pace.</p>
         </div>
 
-        <h1 id="greyH">Affordable, Convenient & Safe</h1>
-        <div id="greydabba">
+        <h1 class="greyH">Affordable, Convenient & Safe</h1>
+        <div class="greydabba">
             <p>With Revv, you can rent a car at a time that is convenient to you and get it delivered right to your doorstep. Apart from an hourly rate starting at just Rs. 33/hour, Revv also offers flexible car rental services. You can choose monthly car rental packages, unlimited kilometre packages, or even get a brand new car from Revv by simply paying the first year’s insurance. Additionally, all cars in our fleet have insurance, so you’ll be safe and secure while cruising down open roads.</p>
         </div>
 
-        <h1 id="greyH">Why Rev</h1>
-        <div id="greydabba">
+        <h1 class="greyH">Why Rev</h1>
+        <div class="greydabba">
             <p>When you choose a car subscription with Revv, you can enjoy:</p>
             <li>Flexible Rentals – You decide whether you’d like to rent a car for an hour, a week, a month, or on a daily basis.</li>
             <li>Several Options – Pick from our wide range of classy hatchbacks, comfortable sedans and spacious SUVs.</li>
@@ -168,18 +168,18 @@ function footer() {
             <li>Unending Opportunities – The cars you rent from Revv can be used for trips out of the city or for daily travels through town. Revv also provides cars for pick up and drop off services at airports and bus and train stations.</li>
         </div>
 
-        <h1 id="greyH">Pick Your Favourite Car</h1>
-        <div id="greydabba">
+        <h1 class="greyH">Pick Your Favourite Car</h1>
+        <div class="greydabba">
             <p>Revv has an amazing fleet of rental cars ranging from compact hatchbacks to roomy sedans and powerful SUVs. You can choose to hire a Hyundai Grand i10, Hyundai Creta, Honda City, Maruti Suzuki Brezza, Ford EcoSport, Mahindra Scorpio, Toyota Innova Crysta, Mahindra XUV and many other car models that suit your requirement.</p>
         </div>
 
-        <h1 id="greyH">Extensive Network</h1>
-        <div id="greydabba">
+        <h1 class="greyH">Extensive Network</h1>
+        <div class="greydabba">
             <p>Currently, you can rent a self-driving car from Revv in Ahmedabad, Bengaluru, Chandigarh, Chennai, Coimbatore, Delhi NCR, Hyderabad, Jaipur, Kochi, Kolkata, Mangalore, Mumbai, Mysuru, Pune, Surat, Trivandrum, Tirupati, Vijayawada, Vizag, Bhubaneswar, Nagpur & Vadodara.</p>
         </div>
 
-        <h1 id="greyH">Rent a Car</h1>
-        <div id="greydabba">
+        <h1 class="greyH">Rent a Car</h1>
+        <div class="greydabba">
             <p>To rent one of our sanitized cars, you can follow these simple steps:</p>
             <li>Download the Revv app from the Apple App Store or Google Play Store</li>
             <li>Pick your favourite car and let us know when and where you need it.</li>
