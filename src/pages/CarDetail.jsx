@@ -4,7 +4,6 @@ import {
   ArrowRight,
   BadgeCheck,
   Briefcase,
-  CalendarDays,
   Check,
   Fuel,
   Gauge,
@@ -23,7 +22,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import useBookingStore from "@/store/useBookingStore";
 import { cars, getCarById, plans, priceForPlan } from "@/data/cars";
 import { addOnCatalog, quote } from "@/lib/pricing";
-import { cn, daysBetween, formatDate, formatINR, formatNumber } from "@/lib/utils";
+import DateRangePicker from "@/components/booking/DateRangePicker";
+import { cn, daysBetween, formatINR, formatNumber } from "@/lib/utils";
 
 export default function CarDetail() {
   const { carId } = useParams();
@@ -161,27 +161,24 @@ export default function CarDetail() {
                 <Badge tone="success">Available</Badge>
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-3 rounded-2xl bg-ink-50 p-4">
-                <div>
-                  <p className="field-label mb-1">
-                    <MapPin size={11} className="mr-1 inline" />
-                    City
-                  </p>
-                  <p className="text-sm font-bold text-ink-900">{store.city}</p>
-                </div>
-                <div>
-                  <p className="field-label mb-1">
-                    <CalendarDays size={11} className="mr-1 inline" />
-                    Duration
-                  </p>
-                  <p className="text-sm font-bold text-ink-900">
+              <div className="mt-6 space-y-3">
+                <div className="flex items-center justify-between rounded-2xl bg-ink-50 px-4 py-3">
+                  <span className="flex items-center gap-2 text-sm font-bold text-ink-900">
+                    <MapPin size={14} className="text-brand-500" />
+                    {store.city}
+                  </span>
+                  <span className="text-sm font-bold text-ink-700">
                     {daysBetween(store.startDate, store.endDate)} days
-                  </p>
+                  </span>
                 </div>
-                <div className="col-span-2 border-t border-ink-200 pt-3 text-xs font-semibold text-ink-500">
-                  {formatDate(store.startDate)} {store.startTime} → {formatDate(store.endDate)}{" "}
-                  {store.endTime}
-                </div>
+
+                <DateRangePicker
+                  startDate={store.startDate}
+                  endDate={store.endDate}
+                  startTime={store.startTime}
+                  endTime={store.endTime}
+                  onChange={(patch) => store.setSearch(patch)}
+                />
               </div>
 
               <div className="mt-6">

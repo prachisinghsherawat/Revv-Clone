@@ -13,6 +13,7 @@ single-page React application.
 | Styling       | Tailwind CSS 4 with a custom theme        |
 | Animation     | Framer Motion                             |
 | Carousels     | Swiper                                    |
+| Calendar      | react-day-picker (range mode)             |
 | State         | Zustand with `localStorage` persistence   |
 | Forms         | React Hook Form                           |
 | Icons         | lucide-react                              |
@@ -69,7 +70,8 @@ Values are read once in `src/lib/config.js` rather than scattered across compone
 src/
   components/
     auth/       shell shared by login and signup
-    booking/    the city + date search widget
+    booking/    search widget and the date-range calendar
+  hooks/        useMediaQuery, useClickOutside
     cars/       car card and filter panel
     home/       one file per home page section
     layout/     navbar, footer, page shell, breadcrumb header
@@ -90,6 +92,9 @@ legacy/         the original HTML/CSS/Bootstrap build, kept for reference
 - Checkout is simulated. No card is charged and no data leaves the browser.
 - Prices derive from a single base rate per car in `src/data/cars.js`; the shorter kilometre plans
   are calculated from it so a car's three prices can never drift apart.
+- Dates are handled as local `YYYY-MM-DD` strings throughout. `src/lib/utils.js` parses and formats
+  them from local date components rather than `toISOString()`, which would shift the day by one
+  either side of UTC.
 - The `legacy/` folder is the previous static site. Its pages reference `./images/`, which now
   lives in `public/`, so those files are an archive rather than a runnable site.
 - Photo credits: `public/images/cars/CREDITS.md`.

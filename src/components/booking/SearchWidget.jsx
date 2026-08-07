@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 import useBookingStore from "@/store/useBookingStore";
 import { cities } from "@/data/content";
 import Button from "@/components/ui/Button";
-import { addDays, cn, daysBetween, today } from "@/lib/utils";
+import DateRangePicker from "./DateRangePicker";
+import { addDays, cn, daysBetween } from "@/lib/utils";
 
 const modes = [
   { id: "rental", label: "Rental", hint: "For hours & days" },
@@ -32,6 +33,13 @@ export default function SearchWidget({ variant = "hero", onSearch }) {
       }
       return next;
     });
+
+  const changeMode = (id) => {
+    setMode(id);
+    if (id === "subscription" && daysBetween(form.startDate, form.endDate) < 7) {
+      update({ endDate: addDays(form.startDate, 7) });
+    }
+  };
 
   const submit = (event) => {
     event.preventDefault();
@@ -70,7 +78,7 @@ export default function SearchWidget({ variant = "hero", onSearch }) {
           <button
             key={item.id}
             type="button"
-            onClick={() => setMode(item.id)}
+            onClick={() => changeMode(item.id)}
             className={cn(
               "flex-1 rounded-xl px-3 py-2.5 text-left transition",
               mode === item.id ? "bg-white shadow-card" : "hover:bg-white/60",
@@ -89,8 +97,8 @@ export default function SearchWidget({ variant = "hero", onSearch }) {
         ))}
       </div>
 
-      <div className={cn("grid gap-3", compact ? "sm:grid-cols-2" : "sm:grid-cols-2")}>
-        <div className="sm:col-span-2">
+      <div className="grid gap-3">
+        <div>
           <label htmlFor="city" className="field-label">
             <MapPin size={12} className="mr-1 inline" />
             Pickup city
@@ -108,51 +116,18 @@ export default function SearchWidget({ variant = "hero", onSearch }) {
         </div>
 
         <div>
-          <label htmlFor="start-date" className="field-label">
+          <span className="field-label">
             <CalendarDays size={12} className="mr-1 inline" />
-            Pickup
-          </label>
-          <div className="flex gap-2">
-            <input
-              id="start-date"
-              type="date"
-              min={today()}
-              value={form.startDate}
-              onChange={(event) => update({ startDate: event.target.value })}
-              className="field-input"
-            />
-            <input
-              type="time"
-              aria-label="Pickup time"
-              value={form.startTime}
-              onChange={(event) => update({ startTime: event.target.value })}
-              className="field-input w-28 shrink-0"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="end-date" className="field-label">
-            <CalendarDays size={12} className="mr-1 inline" />
-            Drop-off
-          </label>
-          <div className="flex gap-2">
-            <input
-              id="end-date"
-              type="date"
-              min={form.startDate || today()}
-              value={form.endDate}
-              onChange={(event) => update({ endDate: event.target.value })}
-              className="field-input"
-            />
-            <input
-              type="time"
-              aria-label="Drop-off time"
-              value={form.endTime}
-              onChange={(event) => update({ endTime: event.target.value })}
-              className="field-input w-28 shrink-0"
-            />
-          </div>
+            Trip dates
+          </span>
+          <DateRangePicker
+            startDate={form.startDate}
+            endDate={form.endDate}
+            startTime={form.startTime}
+            endTime={form.endTime}
+            onChange={update}
+            minNights={mode === "subscription" ? 7 : 1}
+          />
         </div>
       </div>
 

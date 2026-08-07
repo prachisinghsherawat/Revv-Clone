@@ -112,6 +112,69 @@
   }
 }
 
+.revv-calendar {
+  --rdp-accent-color: var(--color-brand-500);
+  --rdp-accent-background-color: var(--color-brand-50);
+  --rdp-day-height: 40px;
+  --rdp-day-width: 40px;
+  --rdp-day_button-height: 38px;
+  --rdp-day_button-width: 38px;
+  --rdp-day_button-border-radius: 12px;
+  --rdp-day_button-border: 2px solid transparent;
+  --rdp-selected-border: none;
+  --rdp-today-color: var(--color-brand-600);
+  --rdp-months-gap: 1.75rem;
+  --rdp-nav_button-height: 2rem;
+  --rdp-nav_button-width: 2rem;
+  --rdp-weekday-opacity: 1;
+  --rdp-outside-opacity: 0.35;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.revv-calendar .rdp-month_caption {
+  @apply font-display text-base font-bold text-ink-900;
+}
+
+.revv-calendar .rdp-weekday {
+  @apply text-[11px] font-bold uppercase tracking-wider text-ink-400;
+}
+
+.revv-calendar .rdp-day_button {
+  @apply font-semibold text-ink-700 transition-colors;
+}
+
+.revv-calendar .rdp-day_button:hover:not([disabled]) {
+  @apply bg-ink-100;
+}
+
+.revv-calendar .rdp-today .rdp-day_button {
+  @apply font-extrabold text-brand-600;
+}
+
+.revv-calendar .rdp-selected .rdp-day_button {
+  @apply font-extrabold;
+}
+
+.revv-calendar .rdp-range_start .rdp-day_button,
+.revv-calendar .rdp-range_end .rdp-day_button {
+  @apply bg-brand-500 text-white;
+}
+
+.revv-calendar .rdp-range_middle .rdp-day_button {
+  @apply rounded-none bg-transparent text-brand-700;
+}
+
+.revv-calendar .rdp-disabled .rdp-day_button {
+  @apply text-ink-300 line-through;
+}
+
+.revv-calendar .rdp-button_next,
+.revv-calendar .rdp-button_previous {
+  @apply rounded-lg text-ink-600 transition-colors hover:bg-ink-100 hover:text-ink-900;
+}
+
 .swiper-pagination-bullet {
   background: var(--color-ink-300);
   opacity: 1;
