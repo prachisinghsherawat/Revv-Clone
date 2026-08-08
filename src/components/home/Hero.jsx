@@ -8,7 +8,7 @@ export default function Hero() {
   const city = useBookingStore((state) => state.city);
 
   return (
-    <section className="relative overflow-hidden bg-sky-50">
+    <section className="relative overflow-hidden bg-brand-50">
       <span className="pointer-events-none absolute -right-40 -top-40 size-[32rem] rounded-full bg-white/50 blur-3xl" />
 
       <div className="container-page relative pb-14 pt-6 lg:pb-20">
@@ -18,9 +18,9 @@ export default function Hero() {
           transition={{ duration: 0.4 }}
           className="flex justify-center"
         >
-          <div className="flex items-center gap-2 rounded-full border border-sky-200 bg-white px-4 py-1.5 text-xs font-semibold text-ink-600 shadow-card">
+          <div className="flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1.5 text-xs font-semibold text-ink-600 shadow-card">
             Car rental in {city}
-            <Link to="/cars" className="font-bold text-blue-600 hover:underline">
+            <Link to="/cars" className="font-bold text-brand-700 hover:underline">
               Know more
             </Link>
           </div>

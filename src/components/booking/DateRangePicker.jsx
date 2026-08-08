@@ -9,11 +9,10 @@ import { addDays, cn, daysBetween, formatDateLong, parseISODate, toISODate, toda
 import "react-day-picker/style.css";
 
 const presets = [
-  { label: "Tomorrow, 1 day", from: 1, nights: 1 },
-  { label: "This weekend", weekend: true },
-  { label: "A week", from: 1, nights: 7 },
-  { label: "A fortnight", from: 1, nights: 15 },
-  { label: "A month", from: 1, nights: 30 },
+  { label: "1 day", from: 1, nights: 1 },
+  { label: "Weekend", weekend: true },
+  { label: "1 week", from: 1, nights: 7 },
+  { label: "1 month", from: 1, nights: 30 },
 ];
 
 const times = Array.from({ length: 48 }, (_, index) => {
@@ -95,13 +94,13 @@ export default function DateRangePicker({
   };
 
   const presetRow = showPresets && (
-    <div className="flex flex-wrap gap-1.5 border-b border-ink-100 p-3">
+    <div className="grid grid-cols-4 gap-1.5 border-b border-ink-100 p-3">
       {presets.map((preset) => (
         <button
           key={preset.label}
           type="button"
           onClick={() => applyPreset(preset)}
-          className="rounded-lg bg-ink-50 px-3 py-1.5 text-xs font-bold text-ink-600 transition hover:bg-ink-900 hover:text-white"
+          className="rounded-lg border border-ink-200 py-1.5 text-xs font-bold text-ink-600 transition hover:border-ink-900 hover:bg-ink-900 hover:text-white"
         >
           {preset.label}
         </button>

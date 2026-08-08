@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <Link to="/" className="flex items-center gap-2.5">
-              <span className="grid size-10 place-items-center rounded-xl bg-brand-500 font-display text-lg font-extrabold text-white">
+              <span className="grid size-10 place-items-center rounded-xl bg-brand-600 font-display text-lg font-extrabold text-white">
                 R
               </span>
               <span className="font-display text-2xl font-extrabold tracking-tight text-white">

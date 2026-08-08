@@ -42,7 +42,7 @@ export default function BookingConfirmed() {
           initial={{ scale: 0.6, opacity: 0 }}
           animate={ready ? { scale: 1, opacity: 1 } : {}}
           transition={{ type: "spring", damping: 14, stiffness: 220 }}
-          className="mx-auto grid size-20 place-items-center rounded-3xl bg-emerald-500 text-white shadow-lift"
+          className="mx-auto grid size-20 place-items-center rounded-3xl bg-ink-950 text-white shadow-lift"
         >
           <CheckCircle2 size={40} />
         </motion.div>
@@ -128,7 +128,7 @@ export default function BookingConfirmed() {
 
         <p className="mt-8 text-center text-sm text-ink-500">
           Need something else?{" "}
-          <Link to="/cars" className="font-bold text-brand-600 hover:underline">
+          <Link to="/cars" className="font-bold text-brand-700 hover:underline">
             Book another car
           </Link>
         </p>

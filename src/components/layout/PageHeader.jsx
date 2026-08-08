@@ -8,14 +8,14 @@ export default function PageHeader({ title, description, breadcrumbs = [] }) {
       <div className="container-page py-10 lg:py-14">
         <Reveal>
           <nav className="flex flex-wrap items-center gap-1.5 text-xs font-semibold text-ink-500">
-            <Link to="/" className="transition hover:text-brand-600">
+            <Link to="/" className="transition hover:text-brand-700">
               Home
             </Link>
             {breadcrumbs.map((crumb) => (
               <span key={crumb.label} className="flex items-center gap-1.5">
                 <ChevronRight size={13} className="text-ink-300" />
                 {crumb.to ? (
-                  <Link to={crumb.to} className="transition hover:text-brand-600">
+                  <Link to={crumb.to} className="transition hover:text-brand-700">
                     {crumb.label}
                   </Link>
                 ) : (

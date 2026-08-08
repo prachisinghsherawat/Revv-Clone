@@ -4,16 +4,17 @@
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-50: #fff1f2;
-  --color-brand-100: #ffe0e3;
-  --color-brand-200: #ffc6cc;
-  --color-brand-300: #ff9da8;
-  --color-brand-400: #ff6478;
-  --color-brand-500: #f92c4b;
-  --color-brand-600: #e6123a;
-  --color-brand-700: #c20b31;
-  --color-brand-800: #a10d2f;
-  --color-brand-900: #87102e;
+  --color-brand-50: #f0f9ff;
+  --color-brand-100: #e0f2fe;
+  --color-brand-200: #bae6fd;
+  --color-brand-300: #7dd3fc;
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #0ea5e9;
+  --color-brand-600: #0284c7;
+  --color-brand-700: #0369a1;
+  --color-brand-800: #075985;
+  --color-brand-900: #0c4a6e;
+  --color-brand-950: #082f49;
 
   --color-ink-50: #f6f7f9;
   --color-ink-100: #eceef2;
@@ -29,7 +30,8 @@
 
   --shadow-card: 0 1px 2px rgb(16 19 31 / 0.04), 0 8px 24px -8px rgb(16 19 31 / 0.12);
   --shadow-lift: 0 2px 4px rgb(16 19 31 / 0.05), 0 20px 45px -15px rgb(16 19 31 / 0.22);
-  --shadow-glow: 0 12px 40px -12px rgb(249 44 75 / 0.55);
+  --shadow-glow: 0 10px 28px -10px rgb(16 19 31 / 0.45);
+  --shadow-glow-accent: 0 12px 32px -12px rgb(14 165 233 / 0.45);
 
   --animate-marquee: marquee 32s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
@@ -113,44 +115,48 @@
 }
 
 .revv-calendar {
-  --rdp-accent-color: var(--color-brand-500);
-  --rdp-accent-background-color: var(--color-brand-50);
+  --rdp-accent-color: var(--color-ink-950);
+  --rdp-accent-background-color: var(--color-brand-100);
   --rdp-day-height: 40px;
   --rdp-day-width: 40px;
-  --rdp-day_button-height: 38px;
-  --rdp-day_button-width: 38px;
-  --rdp-day_button-border-radius: 12px;
-  --rdp-day_button-border: 2px solid transparent;
+  --rdp-day_button-height: 36px;
+  --rdp-day_button-width: 36px;
+  --rdp-day_button-border-radius: 10px;
+  --rdp-day_button-border: none;
   --rdp-selected-border: none;
   --rdp-today-color: var(--color-brand-600);
-  --rdp-months-gap: 1.75rem;
+  --rdp-months-gap: 2rem;
   --rdp-nav_button-height: 2rem;
   --rdp-nav_button-width: 2rem;
+  --rdp-nav-height: 2.25rem;
   --rdp-weekday-opacity: 1;
-  --rdp-outside-opacity: 0.35;
+  --rdp-weekday-padding: 0.35rem 0;
+  --rdp-outside-opacity: 0.3;
+  --rdp-range_middle-background-color: var(--color-brand-50);
+  --rdp-range_middle-color: var(--color-brand-700);
   font-family: var(--font-sans);
   font-size: 0.875rem;
   margin: 0;
 }
 
 .revv-calendar .rdp-month_caption {
-  @apply font-display text-base font-bold text-ink-900;
+  @apply font-display text-sm font-extrabold tracking-tight text-ink-900;
 }
 
 .revv-calendar .rdp-weekday {
-  @apply text-[11px] font-bold uppercase tracking-wider text-ink-400;
+  @apply text-[10px] font-extrabold uppercase tracking-widest text-ink-400;
 }
 
 .revv-calendar .rdp-day_button {
-  @apply font-semibold text-ink-700 transition-colors;
+  @apply text-[13px] font-semibold text-ink-700 transition-colors duration-150;
 }
 
 .revv-calendar .rdp-day_button:hover:not([disabled]) {
-  @apply bg-ink-100;
+  @apply bg-ink-100 text-ink-900;
 }
 
-.revv-calendar .rdp-today .rdp-day_button {
-  @apply font-extrabold text-brand-600;
+.revv-calendar .rdp-today:not(.rdp-selected) .rdp-day_button {
+  @apply font-extrabold text-brand-700 ring-1 ring-brand-200 ring-inset;
 }
 
 .revv-calendar .rdp-selected .rdp-day_button {
@@ -159,20 +165,29 @@
 
 .revv-calendar .rdp-range_start .rdp-day_button,
 .revv-calendar .rdp-range_end .rdp-day_button {
-  @apply bg-brand-500 text-white;
+  @apply bg-ink-950 text-white ring-0;
+}
+
+.revv-calendar .rdp-range_start .rdp-day_button:hover,
+.revv-calendar .rdp-range_end .rdp-day_button:hover {
+  @apply bg-black text-white;
 }
 
 .revv-calendar .rdp-range_middle .rdp-day_button {
-  @apply rounded-none bg-transparent text-brand-700;
+  @apply rounded-none bg-transparent font-semibold text-brand-700;
 }
 
 .revv-calendar .rdp-disabled .rdp-day_button {
-  @apply text-ink-300 line-through;
+  @apply text-ink-300 no-underline opacity-60;
 }
 
 .revv-calendar .rdp-button_next,
 .revv-calendar .rdp-button_previous {
-  @apply rounded-lg text-ink-600 transition-colors hover:bg-ink-100 hover:text-ink-900;
+  @apply rounded-lg border border-ink-200 text-ink-600 transition-colors hover:border-ink-900 hover:bg-ink-900 hover:text-white;
+}
+
+.revv-calendar .rdp-chevron {
+  fill: currentColor;
 }
 
 .swiper-pagination-bullet {

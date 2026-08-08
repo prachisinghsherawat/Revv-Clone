@@ -20,7 +20,7 @@ export default function AuthShell({ title, subtitle, children, footer }) {
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-ink-950/30" />
         <div className="relative flex h-full flex-col justify-between p-12">
           <Link to="/" className="flex items-center gap-2.5">
-            <span className="grid size-10 place-items-center rounded-xl bg-brand-500 font-display text-lg font-extrabold text-white">
+            <span className="grid size-10 place-items-center rounded-xl bg-brand-600 font-display text-lg font-extrabold text-white">
               R
             </span>
             <span className="font-display text-2xl font-extrabold text-white">revv</span>

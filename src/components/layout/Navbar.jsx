@@ -64,7 +64,7 @@ export default function Navbar() {
       <div className="container-page flex h-18 items-center justify-between gap-4 py-3">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2.5" aria-label="Revv home">
-            <span className="grid size-10 place-items-center rounded-xl bg-brand-500 font-display text-lg font-extrabold text-white shadow-glow">
+            <span className="grid size-10 place-items-center rounded-xl bg-brand-600 font-display text-lg font-extrabold text-white shadow-glow">
               R
             </span>
             <span className="font-display text-2xl font-extrabold tracking-tight text-ink-950">
@@ -128,7 +128,7 @@ export default function Navbar() {
                 cn(
                   "rounded-lg px-3.5 py-2 text-sm font-semibold transition",
                   isActive && link.to === pathname
-                    ? "text-brand-600"
+                    ? "text-brand-700"
                     : "text-ink-600 hover:bg-ink-100 hover:text-ink-900",
                 )
               }

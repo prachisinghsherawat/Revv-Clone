@@ -1,7 +1,7 @@
 const base = [
   {
     id: "swift",
-    color: "#d92037",
+    color: "#c8102e",
     name: "Maruti Swift VXi",
     brand: "Maruti",
     segment: "Hatchback",
@@ -24,7 +24,7 @@ const base = [
   },
   {
     id: "baleno",
-    color: "#2f6fed",
+    color: "#e8eaec",
     name: "Maruti Baleno Zeta AT",
     brand: "Maruti",
     segment: "Hatchback",
@@ -47,7 +47,7 @@ const base = [
   },
   {
     id: "dzire",
-    color: "#8d99ae",
+    color: "#b9bec7",
     name: "Maruti Dzire VXi",
     brand: "Maruti",
     segment: "Sedan",
@@ -70,7 +70,7 @@ const base = [
   },
   {
     id: "ertiga",
-    color: "#0f766e",
+    color: "#1f4e8c",
     name: "Maruti Ertiga LXi",
     brand: "Maruti",
     segment: "MUV",
@@ -93,7 +93,7 @@ const base = [
   },
   {
     id: "i20",
-    color: "#f2711c",
+    color: "#d81f26",
     name: "Hyundai Elite i20 AT",
     brand: "Hyundai",
     segment: "Hatchback",
@@ -116,7 +116,7 @@ const base = [
   },
   {
     id: "creta",
-    color: "#1f2a3d",
+    color: "#f2f4f6",
     name: "Hyundai Creta SX AT",
     brand: "Hyundai",
     segment: "SUV",
@@ -139,7 +139,7 @@ const base = [
   },
   {
     id: "verna",
-    color: "#9d1c2c",
+    color: "#8c1c26",
     name: "Hyundai Verna SX AT",
     brand: "Hyundai",
     segment: "Sedan",
@@ -162,7 +162,7 @@ const base = [
   },
   {
     id: "santro",
-    color: "#0e9bb5",
+    color: "#00a0a8",
     name: "Hyundai Santro Sportz",
     brand: "Hyundai",
     segment: "Hatchback",
@@ -185,7 +185,7 @@ const base = [
   },
   {
     id: "xuv500",
-    color: "#3b4a5f",
+    color: "#9aa3ad",
     name: "Mahindra XUV500 W7",
     brand: "Mahindra",
     segment: "SUV",
@@ -208,7 +208,7 @@ const base = [
   },
   {
     id: "scorpio",
-    color: "#22303f",
+    color: "#16181c",
     name: "Mahindra Scorpio S11",
     brand: "Mahindra",
     segment: "SUV",
@@ -231,7 +231,7 @@ const base = [
   },
   {
     id: "thar",
-    color: "#c1622a",
+    color: "#c85a1e",
     name: "Mahindra Thar LX 4x4",
     brand: "Mahindra",
     segment: "SUV",
@@ -254,7 +254,7 @@ const base = [
   },
   {
     id: "city",
-    color: "#aeb8c7",
+    color: "#f4f6f8",
     name: "Honda City ZX CVT",
     brand: "Honda",
     segment: "Sedan",
@@ -277,7 +277,7 @@ const base = [
   },
   {
     id: "amaze",
-    color: "#4a5a72",
+    color: "#9fa8b4",
     name: "Honda Amaze VX",
     brand: "Honda",
     segment: "Sedan",
@@ -300,7 +300,7 @@ const base = [
   },
   {
     id: "innova",
-    color: "#151b26",
+    color: "#1c2733",
     name: "Toyota Innova Crysta GX",
     brand: "Toyota",
     segment: "MUV",
@@ -323,7 +323,7 @@ const base = [
   },
   {
     id: "fortuner",
-    color: "#2b2119",
+    color: "#efeee9",
     name: "Toyota Fortuner 4x2 AT",
     brand: "Toyota",
     segment: "SUV",
@@ -346,7 +346,7 @@ const base = [
   },
   {
     id: "glanza",
-    color: "#e0342b",
+    color: "#2f6fed",
     name: "Toyota Glanza G",
     brand: "Toyota",
     segment: "Hatchback",
@@ -370,13 +370,13 @@ const base = [
 ];
 
 export const basePaints = [
-  { name: "Pearl white", hex: "#e9edf3" },
-  { name: "Midnight", hex: "#151b26" },
-  { name: "Silver", hex: "#aeb8c7" },
-  { name: "Racing red", hex: "#d92037" },
-  { name: "Ocean blue", hex: "#2f6fed" },
-  { name: "Forest", hex: "#0f766e" },
-  { name: "Sunset", hex: "#f2711c" },
+  { name: "Pearl white", hex: "#f2f4f6" },
+  { name: "Silver", hex: "#b9bec7" },
+  { name: "Midnight black", hex: "#16181c" },
+  { name: "Fire red", hex: "#c8102e" },
+  { name: "Ocean blue", hex: "#1f4e8c" },
+  { name: "Forest green", hex: "#186a4a" },
+  { name: "Sunset orange", hex: "#e2701e" },
 ];
 
 export const plans = [

@@ -12,7 +12,7 @@ const promos = [
     title: (
       <>
         Subscribe a car{" "}
-        <span className="whitespace-nowrap text-blue-600">
+        <span className="whitespace-nowrap text-brand-700">
           @ ₹<span className="text-[1.15em]">570</span>
           <span className="text-[0.55em] font-bold align-baseline">/day</span>
         </span>
@@ -25,7 +25,7 @@ const promos = [
     ],
     image: "/images/subscription/subscribe-car.png",
     alt: "Red SUV available on subscription",
-    tick: "bg-emerald-200 text-emerald-900",
+    tick: "bg-brand-100 text-brand-700",
     button: "border-brand-400 hover:bg-brand-500 hover:border-brand-500 hover:text-white",
     to: "/cars?sort=price-asc",
   },
@@ -39,7 +39,7 @@ const promos = [
     ],
     image: "/images/subscription/monthly-plans.png",
     alt: "Orange SUV beside a calendar illustration",
-    tick: "bg-sky-200 text-sky-900",
+    tick: "bg-brand-100 text-brand-700",
     button: "border-ink-900 hover:bg-ink-900 hover:border-ink-900 hover:text-white",
     to: "/cars?sort=price-desc",
   },

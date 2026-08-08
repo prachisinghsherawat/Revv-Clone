@@ -3,8 +3,10 @@ import { cn } from "@/lib/utils";
 
 const variants = {
   primary:
-    "bg-brand-500 text-white shadow-glow hover:bg-brand-600 active:bg-brand-700 disabled:bg-brand-300",
-  dark: "bg-ink-900 text-white hover:bg-ink-800 active:bg-ink-950 disabled:bg-ink-400",
+    "bg-ink-950 text-white shadow-glow hover:bg-ink-800 active:bg-black disabled:bg-ink-400",
+  accent:
+    "bg-brand-600 text-white shadow-glow-accent hover:bg-brand-700 active:bg-brand-800 disabled:bg-brand-300",
+  dark: "bg-ink-900 text-white hover:bg-ink-700 active:bg-ink-950 disabled:bg-ink-400",
   outline:
     "border border-ink-200 bg-white text-ink-900 hover:border-ink-900 hover:bg-ink-50 disabled:text-ink-400",
   ghost: "text-ink-700 hover:bg-ink-100 hover:text-ink-900",

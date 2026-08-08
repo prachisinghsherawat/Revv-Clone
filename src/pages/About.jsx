@@ -78,7 +78,7 @@ export default function About() {
                 className="relative mb-10 pl-12 last:mb-0 sm:w-1/2 sm:pl-0 sm:even:ml-auto sm:even:pl-12 sm:odd:pr-12 sm:odd:text-right"
               >
                 <span className="absolute left-2.5 top-2 size-3 rounded-full bg-brand-500 ring-4 ring-white sm:left-auto sm:-right-1.5 sm:even:-left-1.5" />
-                <p className="font-display text-2xl font-extrabold text-brand-600">{item.year}</p>
+                <p className="font-display text-2xl font-extrabold text-brand-700">{item.year}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{item.body}</p>
               </Reveal>
             ))}

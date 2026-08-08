@@ -38,7 +38,7 @@ export default function Login() {
       footer={
         <>
           New to Revv?{" "}
-          <Link to="/signup" className="font-bold text-brand-600 hover:underline">
+          <Link to="/signup" className="font-bold text-brand-700 hover:underline">
             Create an account
           </Link>
         </>
@@ -61,7 +61,7 @@ export default function Login() {
             })}
           />
           {errors.email && (
-            <p className="mt-1.5 text-xs font-semibold text-brand-600">{errors.email.message}</p>
+            <p className="mt-1.5 text-xs font-semibold text-ink-950">{errors.email.message}</p>
           )}
         </div>
 
@@ -88,7 +88,7 @@ export default function Login() {
             </button>
           </div>
           {errors.password && (
-            <p className="mt-1.5 text-xs font-semibold text-brand-600">{errors.password.message}</p>
+            <p className="mt-1.5 text-xs font-semibold text-ink-950">{errors.password.message}</p>
           )}
         </div>
 
@@ -97,7 +97,7 @@ export default function Login() {
             <input type="checkbox" className="size-4 accent-brand-500" defaultChecked />
             Keep me signed in
           </label>
-          <button type="button" className="text-sm font-bold text-brand-600 hover:underline">
+          <button type="button" className="text-sm font-bold text-brand-700 hover:underline">
             Forgot password?
           </button>
         </div>

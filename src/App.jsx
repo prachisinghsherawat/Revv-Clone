@@ -54,8 +54,8 @@ export default function App() {
             fontSize: "14px",
             fontWeight: 600,
           },
-          success: { iconTheme: { primary: "#10b981", secondary: "#fff" } },
-          error: { iconTheme: { primary: "#f92c4b", secondary: "#fff" } },
+          success: { iconTheme: { primary: "#3b82f6", secondary: "#fff" } },
+          error: { iconTheme: { primary: "#fff", secondary: "#10131f" } },
         }}
       />
     </>

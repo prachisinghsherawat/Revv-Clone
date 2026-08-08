@@ -87,7 +87,7 @@ export default function SearchWidget({ variant = "hero", onSearch }) {
             <span
               className={cn(
                 "block text-sm font-bold",
-                mode === item.id ? "text-brand-600" : "text-ink-700",
+                mode === item.id ? "text-brand-700" : "text-ink-700",
               )}
             >
               {item.label}

@@ -41,28 +41,28 @@ export const offers = [
     title: "Lowest price on 7 day rentals",
     subtitle: "Flat 15% off when you book a full week",
     code: "WEEK15",
-    accent: "from-brand-500 to-brand-700",
+    accent: "from-rose-500 via-red-500 to-orange-500",
   },
   {
     id: "goa-subscription",
     title: "Goa subscriptions from ₹19,999/mo",
     subtitle: "Keep the car for a month, insurance included",
     code: "GOA30",
-    accent: "from-ink-800 to-ink-950",
+    accent: "from-violet-600 via-purple-600 to-fuchsia-600",
   },
   {
     id: "weekday-drop",
     title: "Weekday prices dropped again",
     subtitle: "Up to 10% off Monday to Thursday pickups",
     code: "WEEKDAY10",
-    accent: "from-amber-500 to-orange-600",
+    accent: "from-amber-400 via-orange-500 to-red-500",
   },
   {
     id: "first-trip",
     title: "₹500 off your first Revv trip",
     subtitle: "New users only, valid on all cars",
     code: "FIRST500",
-    accent: "from-emerald-500 to-teal-700",
+    accent: "from-emerald-500 via-teal-500 to-cyan-600",
   },
 ];
 

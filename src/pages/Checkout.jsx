@@ -138,7 +138,7 @@ export default function Checkout() {
                   {...register("name", { required: "Enter your full name" })}
                 />
                 {errors.name && (
-                  <p className="mt-1.5 text-xs font-semibold text-brand-600">
+                  <p className="mt-1.5 text-xs font-semibold text-ink-950">
                     {errors.name.message}
                   </p>
                 )}
@@ -159,7 +159,7 @@ export default function Checkout() {
                   })}
                 />
                 {errors.phone && (
-                  <p className="mt-1.5 text-xs font-semibold text-brand-600">
+                  <p className="mt-1.5 text-xs font-semibold text-ink-950">
                     {errors.phone.message}
                   </p>
                 )}
@@ -180,7 +180,7 @@ export default function Checkout() {
                   })}
                 />
                 {errors.email && (
-                  <p className="mt-1.5 text-xs font-semibold text-brand-600">
+                  <p className="mt-1.5 text-xs font-semibold text-ink-950">
                     {errors.email.message}
                   </p>
                 )}
@@ -200,7 +200,7 @@ export default function Checkout() {
                   })}
                 />
                 {errors.licence && (
-                  <p className="mt-1.5 text-xs font-semibold text-brand-600">
+                  <p className="mt-1.5 text-xs font-semibold text-ink-950">
                     {errors.licence.message}
                   </p>
                 )}
@@ -226,7 +226,7 @@ export default function Checkout() {
                 >
                   <Icon
                     size={20}
-                    className={method === id ? "text-brand-600" : "text-ink-400"}
+                    className={method === id ? "text-brand-700" : "text-ink-400"}
                   />
                   <p className="mt-3 text-sm font-bold text-ink-900">{label}</p>
                   <p className="text-xs font-medium text-ink-500">{hint}</p>
@@ -320,8 +320,8 @@ export default function Checkout() {
 
             <div className="p-5">
               {store.coupon ? (
-                <div className="flex items-center justify-between rounded-xl bg-emerald-50 px-4 py-3">
-                  <span className="flex items-center gap-2 text-sm font-bold text-emerald-700">
+                <div className="flex items-center justify-between rounded-xl bg-brand-50 px-4 py-3">
+                  <span className="flex items-center gap-2 text-sm font-bold text-brand-700">
                     <Ticket size={15} />
                     {store.coupon} applied
                   </span>
@@ -332,7 +332,7 @@ export default function Checkout() {
                       toast("Coupon removed");
                     }}
                     aria-label="Remove coupon"
-                    className="text-emerald-700"
+                    className="text-brand-700"
                   >
                     <X size={16} />
                   </button>
@@ -376,7 +376,7 @@ export default function Checkout() {
                 ))}
 
                 {estimate.discount > 0 && (
-                  <div className="flex justify-between text-emerald-700">
+                  <div className="flex justify-between text-brand-700">
                     <dt className="font-semibold">Discount</dt>
                     <dd className="font-bold">−{formatINR(estimate.discount)}</dd>
                   </div>

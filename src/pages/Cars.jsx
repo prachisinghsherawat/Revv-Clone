@@ -8,6 +8,7 @@ import CarCard from "@/components/cars/CarCard";
 import SearchWidget from "@/components/booking/SearchWidget";
 import Button from "@/components/ui/Button";
 import EmptyState from "@/components/ui/EmptyState";
+import Pagination from "@/components/ui/Pagination";
 import { CarCardSkeleton } from "@/components/ui/Skeleton";
 import useBookingStore from "@/store/useBookingStore";
 import { cars, priceBounds } from "@/data/cars";
@@ -43,6 +44,9 @@ export default function Cars() {
   const [loading, setLoading] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [editingSearch, setEditingSearch] = useState(false);
+  const [page, setPage] = useState(1);
+
+  const perPage = 9;
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 450);
@@ -51,19 +55,22 @@ export default function Cars() {
 
   const changeSort = (value) => {
     setSort(value);
+    setPage(1);
     const next = new URLSearchParams(searchParams);
     if (value === "popular") next.delete("sort");
     else next.set("sort", value);
     setSearchParams(next, { replace: true });
   };
 
-  const toggleFilter = (key, value) =>
+  const toggleFilter = (key, value) => {
+    setPage(1);
     setFilters((current) => ({
       ...current,
       [key]: current[key].includes(value)
         ? current[key].filter((item) => item !== value)
         : [...current[key], value],
     }));
+  };
 
   const results = useMemo(() => {
     const term = query.trim().toLowerCase();
@@ -91,6 +98,15 @@ export default function Cars() {
 
     return [...filtered].sort(sorters[sort] ?? sorters.popular);
   }, [filters, sort, query]);
+
+  const totalPages = Math.max(1, Math.ceil(results.length / perPage));
+  const currentPage = Math.min(page, totalPages);
+  const visible = results.slice((currentPage - 1) * perPage, currentPage * perPage);
+
+  const goToPage = (next) => {
+    setPage(next);
+    window.scrollTo({ top: 260, behavior: "smooth" });
+  };
 
   const activeCount =
     filters.segment.length +
@@ -164,7 +180,10 @@ export default function Cars() {
                 <input
                   type="search"
                   value={query}
-                  onChange={(event) => setQuery(event.target.value)}
+                  onChange={(event) => {
+                    setQuery(event.target.value);
+                    setPage(1);
+                  }}
                   placeholder="Search by model or brand"
                   className="field-input pl-11"
                   aria-label="Search cars"
@@ -218,11 +237,25 @@ export default function Cars() {
                 }}
               />
             ) : (
+              <>
               <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                {results.map((car, index) => (
+                {visible.map((car, index) => (
                   <CarCard key={car.id} car={car} index={index} />
                 ))}
               </div>
+
+              <div className="mt-10 flex flex-col items-center gap-4">
+                <Pagination
+                  page={currentPage}
+                  totalPages={totalPages}
+                  onChange={goToPage}
+                />
+                <p className="text-xs font-semibold text-ink-500">
+                  Showing {(currentPage - 1) * perPage + 1}–
+                  {Math.min(currentPage * perPage, results.length)} of {results.length} cars
+                </p>
+              </div>
+              </>
             )}
           </div>
         </div>

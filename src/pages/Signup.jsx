@@ -18,7 +18,7 @@ const strengthOf = (value = "") => {
 };
 
 const labels = ["Too short", "Weak", "Fair", "Good", "Strong"];
-const colors = ["bg-ink-200", "bg-brand-500", "bg-amber-500", "bg-lime-500", "bg-emerald-500"];
+const colors = ["bg-ink-200", "bg-ink-950", "bg-brand-400", "bg-brand-600", "bg-ink-950"];
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ export default function Signup() {
       footer={
         <>
           Already have an account?{" "}
-          <Link to="/login" className="font-bold text-brand-600 hover:underline">
+          <Link to="/login" className="font-bold text-brand-700 hover:underline">
             Log in
           </Link>
         </>
@@ -76,7 +76,7 @@ export default function Signup() {
             })}
           />
           {errors.name && (
-            <p className="mt-1.5 text-xs font-semibold text-brand-600">{errors.name.message}</p>
+            <p className="mt-1.5 text-xs font-semibold text-ink-950">{errors.name.message}</p>
           )}
         </div>
 
@@ -96,7 +96,7 @@ export default function Signup() {
             })}
           />
           {errors.email && (
-            <p className="mt-1.5 text-xs font-semibold text-brand-600">{errors.email.message}</p>
+            <p className="mt-1.5 text-xs font-semibold text-ink-950">{errors.email.message}</p>
           )}
         </div>
 
@@ -116,7 +116,7 @@ export default function Signup() {
             })}
           />
           {errors.phone && (
-            <p className="mt-1.5 text-xs font-semibold text-brand-600">{errors.phone.message}</p>
+            <p className="mt-1.5 text-xs font-semibold text-ink-950">{errors.phone.message}</p>
           )}
         </div>
 
@@ -164,7 +164,7 @@ export default function Signup() {
           )}
 
           {errors.password && (
-            <p className="mt-1.5 text-xs font-semibold text-brand-600">{errors.password.message}</p>
+            <p className="mt-1.5 text-xs font-semibold text-ink-950">{errors.password.message}</p>
           )}
         </div>
 
@@ -179,7 +179,7 @@ export default function Signup() {
           </span>
         </label>
         {errors.terms && (
-          <p className="-mt-3 text-xs font-semibold text-brand-600">{errors.terms.message}</p>
+          <p className="-mt-3 text-xs font-semibold text-ink-950">{errors.terms.message}</p>
         )}
 
         <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>

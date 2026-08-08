@@ -76,7 +76,7 @@ export default function Faq() {
             </nav>
 
             <div className="mt-8 rounded-3xl bg-brand-50 p-6">
-              <MessageCircle size={22} className="text-brand-600" />
+              <MessageCircle size={22} className="text-brand-700" />
               <h2 className="mt-4 font-display text-lg font-bold text-ink-950">
                 Still need a hand?
               </h2>

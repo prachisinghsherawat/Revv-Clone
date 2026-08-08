@@ -97,11 +97,11 @@ export default function LocationModal({ open, onClose, value, onSelect }) {
           type="button"
           onClick={detectLocation}
           disabled={locating}
-          className="mt-3 flex w-full items-center gap-2.5 rounded-xl bg-teal-50 px-4 py-2.5 text-sm font-bold text-teal-800 transition hover:bg-teal-100 disabled:cursor-progress disabled:opacity-70"
+          className="mt-3 flex w-full items-center gap-2.5 rounded-xl bg-brand-50 px-4 py-2.5 text-sm font-bold text-brand-800 transition hover:bg-brand-100 disabled:cursor-progress disabled:opacity-70"
         >
           <LocateFixed size={16} className={cn(locating && "animate-spin")} />
           {locating ? "Finding you…" : "Use my current location"}
-          <span className="ml-auto text-xs font-semibold text-teal-600">
+          <span className="ml-auto text-xs font-semibold text-brand-700">
             {locating ? "" : "Detect"}
           </span>
         </button>
@@ -154,7 +154,7 @@ export default function LocationModal({ open, onClose, value, onSelect }) {
                   <span
                     className={cn(
                       "grid size-9 shrink-0 place-items-center rounded-full",
-                      name === value ? "bg-teal-500 text-white" : "bg-ink-100 text-ink-500",
+                      name === value ? "bg-brand-600 text-white" : "bg-ink-100 text-ink-500",
                     )}
                   >
                     <MapPin size={16} />
@@ -167,7 +167,7 @@ export default function LocationModal({ open, onClose, value, onSelect }) {
                       </span>
                     )}
                   </span>
-                  {name === value && <Check size={17} className="shrink-0 text-teal-600" />}
+                  {name === value && <Check size={17} className="shrink-0 text-brand-700" />}
                 </button>
               </li>
             ))}

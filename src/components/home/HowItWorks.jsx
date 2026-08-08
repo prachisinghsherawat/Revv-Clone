@@ -16,7 +16,7 @@ export default function HowItWorks() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {steps.map((step, index) => (
             <Reveal key={step.id} delay={index * 0.1} className="relative text-center">
-              <span className="relative z-10 mx-auto grid size-14 place-items-center rounded-2xl bg-brand-500 font-display text-xl font-extrabold text-white shadow-glow">
+              <span className="relative z-10 mx-auto grid size-14 place-items-center rounded-2xl bg-brand-600 font-display text-xl font-extrabold text-white shadow-glow">
                 {step.id}
               </span>
               <h3 className="mt-5 text-lg font-bold text-ink-950">{step.title}</h3>

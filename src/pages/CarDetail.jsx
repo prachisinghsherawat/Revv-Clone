@@ -148,7 +148,7 @@ export default function CarDetail() {
               <ul className="mt-4 space-y-3">
                 {car.highlights.map((point) => (
                   <li key={point} className="flex gap-3">
-                    <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-emerald-100 text-emerald-700">
+                    <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-brand-100 text-brand-700">
                       <Check size={13} />
                     </span>
                     <span className="text-sm leading-relaxed text-ink-600">{point}</span>
@@ -239,7 +239,7 @@ export default function CarDetail() {
                         <span
                           className={cn(
                             "text-sm font-extrabold",
-                            active ? "text-brand-600" : "text-ink-700",
+                            active ? "text-brand-700" : "text-ink-700",
                           )}
                         >
                           {formatINR(priceForPlan(car, plan.id))}

@@ -21,7 +21,7 @@ export default function SectionHeading({
     >
       <Reveal className={cn("max-w-2xl", centered && "text-center")}>
         {eyebrow && (
-          <span className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-600">
+          <span className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
             <span className="h-px w-6 bg-brand-500" />
             {eyebrow}
           </span>

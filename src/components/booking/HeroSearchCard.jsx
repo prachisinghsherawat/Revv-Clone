@@ -80,7 +80,7 @@ export default function HeroSearchCard() {
       className="w-full rounded-3xl bg-white p-5 shadow-lift sm:p-7"
       aria-label="Find a car"
     >
-      <div className="grid grid-cols-2 overflow-hidden rounded-xl bg-teal-500">
+      <div className="grid grid-cols-2 overflow-hidden rounded-xl bg-brand-600">
         {modes.map((item) => (
           <button
             key={item.id}
@@ -89,7 +89,7 @@ export default function HeroSearchCard() {
             aria-pressed={mode === item.id}
             className={cn(
               "relative px-3 py-3 text-center transition-colors duration-200",
-              mode === item.id ? "bg-white" : "text-white hover:bg-teal-400",
+              mode === item.id ? "bg-white" : "text-white hover:bg-brand-500",
             )}
           >
             <span
@@ -135,10 +135,10 @@ export default function HeroSearchCard() {
           aria-haspopup="dialog"
           className={cn(
             "flex w-full items-center gap-3 rounded-2xl border bg-white px-4 py-3.5 text-left shadow-card transition",
-            cityOpen ? "border-teal-500 ring-4 ring-teal-500/10" : "border-ink-100 hover:border-ink-300",
+            cityOpen ? "border-brand-500 ring-4 ring-brand-500/10" : "border-ink-100 hover:border-ink-300",
           )}
         >
-          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-teal-500 text-white">
+          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-brand-600 text-white">
             <MapPin size={17} />
           </span>
           <span className="min-w-0 flex-1">
