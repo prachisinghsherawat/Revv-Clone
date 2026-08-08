@@ -1,11 +1,12 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { addDays, today } from "@/lib/utils";
+import config from "@/lib/config";
 
 const useBookingStore = create(
   persist(
     (set) => ({
-      city: "Delhi NCR",
+      city: config.defaultCity,
       startDate: today(),
       endDate: addDays(today(), 2),
       startTime: "10:00",

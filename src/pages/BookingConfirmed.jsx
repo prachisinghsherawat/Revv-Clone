@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CalendarDays, CheckCircle2, Download, MapPin, Phone } from "lucide-react";
 import Button from "@/components/ui/Button";
+import CarStage from "@/components/cars/CarStage";
 import Badge from "@/components/ui/Badge";
 import EmptyState from "@/components/ui/EmptyState";
 import useBookingStore from "@/store/useBookingStore";
@@ -69,10 +70,14 @@ export default function BookingConfirmed() {
           className="card-surface mt-10 overflow-hidden"
         >
           <div className="flex gap-5 border-b border-ink-100 p-6">
-            <img
-              src={booking.carImage}
-              alt={booking.carName}
-              className="size-24 shrink-0 rounded-2xl object-cover"
+            <CarStage
+              car={{
+                segment: booking.carSegment,
+                color: booking.carColor,
+                name: booking.carName,
+              }}
+              className="size-24 shrink-0 rounded-2xl"
+              modelClassName="px-1"
             />
             <div>
               <h2 className="font-display text-lg font-bold text-ink-950">{booking.carName}</h2>

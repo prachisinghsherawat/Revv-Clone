@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import PageHeader from "@/components/layout/PageHeader";
+import CarStage from "@/components/cars/CarStage";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import useBookingStore from "@/store/useBookingStore";
@@ -82,7 +83,8 @@ export default function Checkout() {
         reference: bookingReference(),
         carId: car.id,
         carName: car.name,
-        carImage: car.image,
+        carSegment: car.segment,
+        carColor: car.color,
         city: store.city,
         startDate: store.startDate,
         endDate: store.endDate,
@@ -302,11 +304,7 @@ export default function Checkout() {
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="card-surface overflow-hidden">
             <div className="flex gap-4 border-b border-ink-100 p-5">
-              <img
-                src={car.image}
-                alt={car.name}
-                className="size-20 shrink-0 rounded-xl object-cover"
-              />
+              <CarStage car={car} className="size-20 shrink-0 rounded-xl" modelClassName="px-1" />
               <div>
                 <h2 className="font-display text-base font-bold leading-tight text-ink-950">
                   {car.name}

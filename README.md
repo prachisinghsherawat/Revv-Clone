@@ -97,6 +97,13 @@ legacy/         the original HTML/CSS/Bootstrap build, kept for reference
   either side of UTC.
 - The `legacy/` folder is the previous static site. Its pages reference `./images/`, which now
   lives in `public/`, so those files are an archive rather than a runnable site.
-- Photo credits: `public/images/cars/CREDITS.md`.
+- Cars are drawn as **vector models**, not photos. `src/components/cars/CarModel.jsx` holds four
+  side-profile bodies (hatchback, sedan, SUV, MUV) and `src/lib/color.js` builds a multi-stop paint
+  ramp — sky reflection on top, a sharp horizon band, darker lower panels and ground bounce — from
+  each car's hex colour. That keeps every card consistent, transparent and sharp at any size.
+  To swap in real studio cutouts later, drop PNGs in `public/images/models/` and render an `<img>`
+  in `CarStage.jsx` instead of `<CarModel>`.
+- The old Wikimedia photos are still in `public/images/cars/` but are no longer referenced.
+  Credits for them remain in `public/images/cars/CREDITS.md`.
 
 Not affiliated with Revv. Built as a learning project.

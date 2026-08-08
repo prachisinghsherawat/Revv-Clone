@@ -1,12 +1,11 @@
-import { useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Check, MapPin, Search } from "lucide-react";
+import { ArrowRight, MapPin, Search } from "lucide-react";
 import toast from "react-hot-toast";
 import useBookingStore from "@/store/useBookingStore";
-import useClickOutside from "@/hooks/useClickOutside";
-import { cities } from "@/data/content";
 import DateRangePicker from "./DateRangePicker";
+import LocationModal from "./LocationModal";
 import Button from "@/components/ui/Button";
 import { addDays, cn, daysBetween } from "@/lib/utils";
 
@@ -25,9 +24,7 @@ export default function HeroSearchCard() {
   const store = useBookingStore();
   const [mode, setMode] = useState("rental");
   const [cityOpen, setCityOpen] = useState(false);
-  const [cityQuery, setCityQuery] = useState("");
   const [picked, setPicked] = useState(false);
-  const cityRef = useRef(null);
 
   const [form, setForm] = useState({
     city: store.city,
@@ -36,8 +33,6 @@ export default function HeroSearchCard() {
     startTime: store.startTime,
     endTime: store.endTime,
   });
-
-  useClickOutside(cityRef, () => setCityOpen(false), cityOpen);
 
   const update = (patch) =>
     setForm((current) => {
@@ -48,16 +43,10 @@ export default function HeroSearchCard() {
       return next;
     });
 
-  const filtered = useMemo(() => {
-    const term = cityQuery.trim().toLowerCase();
-    return term ? cities.filter((name) => name.toLowerCase().includes(term)) : cities;
-  }, [cityQuery]);
-
   const chooseCity = (name) => {
     update({ city: name });
     setPicked(true);
     setCityOpen(false);
-    setCityQuery("");
   };
 
   const changeMode = (id) => {
@@ -138,12 +127,12 @@ export default function HeroSearchCard() {
         </p>
       </div>
 
-      <div ref={cityRef} className="relative mt-6">
+      <div className="relative mt-6">
         <button
           type="button"
           onClick={() => setCityOpen((open) => !open)}
           aria-expanded={cityOpen}
-          aria-haspopup="listbox"
+          aria-haspopup="dialog"
           className={cn(
             "flex w-full items-center gap-3 rounded-2xl border bg-white px-4 py-3.5 text-left shadow-card transition",
             cityOpen ? "border-teal-500 ring-4 ring-teal-500/10" : "border-ink-100 hover:border-ink-300",
@@ -169,55 +158,14 @@ export default function HeroSearchCard() {
           <ArrowRight size={18} className="shrink-0 text-brand-500" />
         </button>
 
-        <AnimatePresence>
-          {cityOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.18 }}
-              className="absolute inset-x-0 z-40 mt-2 overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-lift"
-            >
-              <div className="border-b border-ink-100 p-2">
-                <input
-                  autoFocus
-                  value={cityQuery}
-                  onChange={(event) => setCityQuery(event.target.value)}
-                  placeholder="Search city"
-                  aria-label="Search city"
-                  className="w-full rounded-lg bg-ink-50 px-3 py-2 text-sm font-semibold text-ink-900 outline-none placeholder:text-ink-400"
-                />
-              </div>
-              <ul role="listbox" className="max-h-56 overflow-y-auto p-1.5">
-                {filtered.length === 0 && (
-                  <li className="px-3 py-4 text-center text-sm font-semibold text-ink-400">
-                    No city matches that
-                  </li>
-                )}
-                {filtered.map((name) => (
-                  <li key={name}>
-                    <button
-                      type="button"
-                      role="option"
-                      aria-selected={picked && name === form.city}
-                      onClick={() => chooseCity(name)}
-                      className={cn(
-                        "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm font-semibold transition",
-                        picked && name === form.city
-                          ? "bg-teal-50 text-teal-800"
-                          : "text-ink-600 hover:bg-ink-100",
-                      )}
-                    >
-                      {name}
-                      {picked && name === form.city && <Check size={15} />}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      <LocationModal
+        open={cityOpen}
+        onClose={() => setCityOpen(false)}
+        value={form.city}
+        onSelect={chooseCity}
+      />
 
       <AnimatePresence initial={false}>
         {picked && (

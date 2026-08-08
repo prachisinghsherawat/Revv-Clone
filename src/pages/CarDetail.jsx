@@ -20,8 +20,9 @@ import Reveal from "@/components/ui/Reveal";
 import CarCard from "@/components/cars/CarCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import useBookingStore from "@/store/useBookingStore";
-import { cars, getCarById, plans, priceForPlan } from "@/data/cars";
+import { basePaints, cars, getCarById, plans, priceForPlan } from "@/data/cars";
 import { addOnCatalog, quote } from "@/lib/pricing";
+import CarStage from "@/components/cars/CarStage";
 import DateRangePicker from "@/components/booking/DateRangePicker";
 import { cn, daysBetween, formatINR, formatNumber } from "@/lib/utils";
 
@@ -32,8 +33,14 @@ export default function CarDetail() {
   const store = useBookingStore();
   const [planId, setPlanId] = useState(store.planId);
   const [addOns, setAddOns] = useState(store.addOns);
+  const [paint, setPaint] = useState(car?.color ?? "#d92037");
 
   if (!car) return <Navigate to="/cars" replace />;
+
+  const paintOptions = [
+    { name: "Signature", hex: car.color },
+    ...basePaints.filter((option) => option.hex !== car.color),
+  ];
 
   const estimate = quote({
     car,
@@ -76,12 +83,35 @@ export default function CarDetail() {
       <div className="container-page py-10 lg:py-14">
         <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
           <div>
-            <Reveal className="overflow-hidden rounded-3xl bg-ink-100">
-              <img
-                src={car.image}
-                alt={car.name}
-                className="aspect-[16/10] w-full object-cover"
+            <Reveal className="overflow-hidden rounded-3xl border border-ink-100">
+              <CarStage
+                car={car}
+                color={paint}
+                className="aspect-16/10 w-full"
+                modelClassName="transition-transform duration-500"
               />
+              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-ink-100 bg-white px-5 py-4">
+                <p className="text-xs font-bold uppercase tracking-wider text-ink-400">
+                  Choose a colour
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {paintOptions.map((option) => (
+                    <button
+                      key={option.hex}
+                      type="button"
+                      onClick={() => setPaint(option.hex)}
+                      aria-label={option.name}
+                      aria-pressed={paint === option.hex}
+                      title={option.name}
+                      className={cn(
+                        "size-8 rounded-full ring-2 ring-offset-2 transition hover:scale-110",
+                        paint === option.hex ? "ring-ink-900" : "ring-transparent",
+                      )}
+                      style={{ backgroundColor: option.hex }}
+                    />
+                  ))}
+                </div>
+              </div>
             </Reveal>
 
             <Reveal delay={0.06} className="mt-6 flex flex-wrap items-center gap-3">

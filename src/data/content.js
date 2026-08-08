@@ -1,15 +1,39 @@
-export const cities = [
-  "Delhi NCR",
-  "Mumbai",
-  "Bengaluru",
-  "Hyderabad",
-  "Chennai",
-  "Pune",
-  "Kolkata",
-  "Jaipur",
-  "Chandigarh",
-  "Goa",
-];
+export const cityCoords = {
+  "Delhi NCR": { lat: 28.6139, lon: 77.209 },
+  Mumbai: { lat: 19.076, lon: 72.8777 },
+  Bengaluru: { lat: 12.9716, lon: 77.5946 },
+  Hyderabad: { lat: 17.385, lon: 78.4867 },
+  Chennai: { lat: 13.0827, lon: 80.2707 },
+  Pune: { lat: 18.5204, lon: 73.8567 },
+  Kolkata: { lat: 22.5726, lon: 88.3639 },
+  Jaipur: { lat: 26.9124, lon: 75.7873 },
+  Chandigarh: { lat: 30.7333, lon: 76.7794 },
+  Goa: { lat: 15.2993, lon: 74.124 },
+};
+
+export const cities = Object.keys(cityCoords);
+
+export const nearestCity = (lat, lon) => {
+  const toRad = (value) => (value * Math.PI) / 180;
+
+  let best = null;
+  let bestDistance = Infinity;
+
+  for (const [name, point] of Object.entries(cityCoords)) {
+    const dLat = toRad(point.lat - lat);
+    const dLon = toRad(point.lon - lon);
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos(toRad(lat)) * Math.cos(toRad(point.lat)) * Math.sin(dLon / 2) ** 2;
+    const distance = 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      best = name;
+    }
+  }
+
+  return { city: best, distanceKm: Math.round(bestDistance) };
+};
 
 export const offers = [
   {

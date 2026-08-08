@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Fuel, Gauge, Settings2, Users } from "lucide-react";
+import CarStage from "./CarStage";
 import Badge from "@/components/ui/Badge";
 import Rating from "@/components/ui/Rating";
 import Button from "@/components/ui/Button";
@@ -21,12 +22,11 @@ export default function CarCard({ car, index = 0 }) {
       transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
       className="group card-surface flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-ink-200 hover:shadow-lift"
     >
-      <Link to={`/cars/${car.id}`} className="relative block overflow-hidden bg-ink-100">
-        <img
-          src={car.image}
-          alt={car.name}
-          loading="lazy"
-          className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      <Link to={`/cars/${car.id}`} className="relative block overflow-hidden">
+        <CarStage
+          car={car}
+          className="aspect-16/10 w-full"
+          modelClassName="transition-transform duration-500 group-hover:-translate-x-2 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-3.5">
           <div className="flex flex-wrap gap-1.5">
