@@ -51,12 +51,23 @@ export default function CarDetail() {
   });
 
   const specs = [
-    { icon: Users, label: "Seats", value: car.seats },
+    { icon: Users, label: "Seats", value: `${car.seats} · ${car.doors} door` },
     { icon: Settings2, label: "Gearbox", value: car.transmission },
     { icon: Fuel, label: "Fuel", value: car.fuel },
     { icon: Gauge, label: "Mileage", value: `${car.mileage} km/l` },
-    { icon: Briefcase, label: "Luggage", value: `${car.bags} bags` },
+    { icon: Briefcase, label: "Luggage", value: `${car.bags} bags · ${car.boot} L` },
     { icon: BadgeCheck, label: "Model year", value: car.year },
+  ];
+
+  const performance = [
+    { label: "Engine", value: car.engine },
+    { label: "Power", value: `${car.power} bhp` },
+    { label: "Torque", value: `${car.torque} Nm` },
+    { label: "Drivetrain", value: car.drive },
+    { label: "Ground clearance", value: `${car.clearance} mm` },
+    { label: "Top speed", value: `${car.topSpeed} km/h` },
+    { label: "Airbags", value: car.airbags },
+    { label: "Boot space", value: `${car.boot} litres` },
   ];
 
   const toggleAddOn = (id) =>
@@ -141,7 +152,42 @@ export default function CarDetail() {
               </dl>
             </Reveal>
 
+            <Reveal delay={0.12} className="mt-10">
+              <h2 className="font-display text-xl font-bold text-ink-950">
+                Engine and performance
+              </h2>
+              <dl className="mt-4 overflow-hidden rounded-2xl border border-ink-100">
+                {performance.map(({ label, value }, index) => (
+                  <div
+                    key={label}
+                    className={cn(
+                      "flex items-center justify-between gap-4 px-4 py-3 text-sm sm:px-5",
+                      index % 2 === 0 ? "bg-white" : "bg-ink-50/70",
+                    )}
+                  >
+                    <dt className="font-semibold text-ink-500">{label}</dt>
+                    <dd className="text-right font-bold text-ink-900">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+
             <Reveal delay={0.14} className="mt-10">
+              <h2 className="font-display text-xl font-bold text-ink-950">Features on board</h2>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {car.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-ink-200 bg-white px-3 py-2 text-sm font-semibold text-ink-700"
+                  >
+                    <Check size={13} className="shrink-0 text-brand-600" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={0.16} className="mt-10">
               <h2 className="font-display text-xl font-bold text-ink-950">
                 What this car is good for
               </h2>
@@ -319,7 +365,11 @@ export default function CarDetail() {
 
         {similar.length > 0 && (
           <div className="mt-20">
-            <SectionHeading eyebrow="Similar cars" title={`More ${car.segment}s in ${store.city}`} />
+            <SectionHeading
+              eyebrow="Similar cars"
+              title={`More ${car.segment}s in ${store.city}`}
+              description="Same body type, same insurance and roadside cover, available on your dates."
+            />
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {similar.map((item, index) => (
                 <CarCard key={item.id} car={item} index={index} />

@@ -8,6 +8,7 @@ export default function HowItWorks() {
       <SectionHeading
         eyebrow="How it works"
         title="Four steps between you and the keys"
+        description="From opening the app to driving off takes about ten minutes, and the paperwork only happens once."
         align="center"
       />
 

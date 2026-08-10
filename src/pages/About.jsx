@@ -46,7 +46,11 @@ export default function About() {
       </section>
 
       <section className="container-page pb-16 lg:pb-24">
-        <SectionHeading eyebrow="What we believe" title="Three rules we do not bend" />
+        <SectionHeading
+          eyebrow="What we believe"
+          title="Three rules we do not bend"
+          description="They sound obvious. Enough of the industry ignores them that writing them down still means something."
+        />
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {values.map((value, index) => (
             <Reveal
@@ -66,7 +70,12 @@ export default function About() {
 
       <section id="journey" className="bg-ink-50/70 py-16 lg:py-24">
         <div className="container-page">
-          <SectionHeading eyebrow="Our journey" title="Ten years, one road" align="center" />
+          <SectionHeading
+            eyebrow="Our journey"
+            title="Ten years, one road"
+            description="Fifty cars in a Gurugram parking lot to a 4,000 car fleet across 20 cities."
+            align="center"
+          />
 
           <ol className="relative mx-auto mt-14 max-w-3xl">
             <span className="absolute left-4 top-2 h-[calc(100%-1rem)] w-px bg-ink-200 sm:left-1/2" />

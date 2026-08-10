@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, RotateCcw, SlidersHorizontal } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { brands, fuels, priceBounds, segments, transmissions } from "@/data/cars";
+import { brands, fuels, priceBounds, seatOptions, segments, transmissions } from "@/data/cars";
 import { cn, formatINR } from "@/lib/utils";
 
 function Section({ title, count, children, defaultOpen = true }) {
@@ -133,7 +133,7 @@ export default function FilterPanel({ filters, onToggle, onChange, onReset, resu
 
         <Section title="Seats" count={filters.seats.length}>
           <Chips
-            options={["4", "5", "7"]}
+            options={seatOptions}
             selected={filters.seats}
             onToggle={(value) => onToggle("seats", value)}
           />

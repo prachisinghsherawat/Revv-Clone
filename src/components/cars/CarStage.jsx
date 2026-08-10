@@ -23,6 +23,7 @@ export default function CarStage({ car, color, className, modelClassName, tone =
       <CarModel
         segment={car.segment}
         color={color ?? car.color}
+        spokes={car.dims?.spokes}
         title={car.name}
         className={cn("relative z-10 px-5", modelClassName)}
       />

@@ -165,7 +165,7 @@ export default function Cars() {
           )}
         </AnimatePresence>
 
-        <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+        <div className="grid gap-8 lg:grid-cols-[320px_1fr] xl:grid-cols-[348px_1fr] xl:gap-10">
           <aside className="hidden lg:block">
             <div className="sticky top-24">{panel}</div>
           </aside>

@@ -13,7 +13,7 @@ export default function Perks() {
           eyebrow="Why Revv"
           title="Everything bundled, nothing sprung on you"
           description="The things other rental companies charge extra for are already in the price you see."
-          className="[&_h2]:text-white [&_p]:text-ink-400"
+          tone="dark"
         />
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
