@@ -1,109 +1,52 @@
 # Revv Clone — React
 
-A self-drive car rental site modelled on [revv.co.in](https://www.revv.co.in/), rebuilt as a
-single-page React application.
+A self-drive car rental website inspired by Revv, built as a learning project using React.
 
-## Stack
+## Screenshots
 
-| Concern       | Choice                                    |
-| ------------- | ----------------------------------------- |
-| Build         | Vite 7                                    |
-| UI            | React 19                                  |
-| Routing       | React Router 7 (lazy-loaded routes)       |
-| Styling       | Tailwind CSS 4 with a custom theme        |
-| Animation     | Framer Motion                             |
-| Carousels     | Swiper                                    |
-| Calendar      | react-day-picker (range mode)             |
-| State         | Zustand with `localStorage` persistence   |
-| Forms         | React Hook Form                           |
-| Icons         | lucide-react                              |
-| Notifications | react-hot-toast                           |
+### Home
+<img width="1825" height="859" alt="image" src="https://github.com/user-attachments/assets/82bb1672-cbc6-4ff1-adbb-f5ef9fed129c" />
 
-## Getting started
+### Cars
+<img width="1813" height="846" alt="image" src="https://github.com/user-attachments/assets/c6e10b87-d730-4b31-ab07-435d065b282b" />
+
+### Car Details
+<img width="1827" height="828" alt="image" src="https://github.com/user-attachments/assets/15a0acfc-d868-40bc-98b9-53ec5711d734" />
+
+### Checkout
+<img width="1814" height="804" alt="image" src="https://github.com/user-attachments/assets/326b2abd-734d-422d-9373-393b83da362b" />
+
+### Login / Signup
+<img width="1867" height="800" alt="image" src="https://github.com/user-attachments/assets/c2b41b08-c269-4d18-af7c-4de70af878d9" />
+
+## Tech Stack
+
+- React 19
+- Vite 7
+- React Router 7
+- Tailwind CSS 4
+- Framer Motion
+- Swiper
+- Zustand
+- React Hook Form
+- Lucide React
+
+## Features
+
+- Car search and filters
+- Car details and pricing
+- Date-range booking
+- Checkout flow
+- Coupon support
+- Login / Signup
+- Booking confirmation
+- FAQ section
+- Responsive design
+- LocalStorage-based demo state
+
+## Run Locally
 
 ```bash
 npm install
 cp .env.example .env
 npm run dev
-```
-
-| Script            | Does                                |
-| ----------------- | ----------------------------------- |
-| `npm run dev`     | Dev server on http://localhost:5173 |
-| `npm run build`   | Production build into `dist/`       |
-| `npm run preview` | Serve the production build          |
-| `npm run lint`    | ESLint across the project           |
-
-## Environment
-
-Copy `.env.example` to `.env`. Vite only exposes variables prefixed with `VITE_`, and `.env` is
-gitignored so local values stay local.
-
-| Variable                    | Purpose                            |
-| --------------------------- | ---------------------------------- |
-| `VITE_APP_NAME`             | Brand name shown in the UI         |
-| `VITE_SUPPORT_PHONE`        | Support number on FAQ and receipts |
-| `VITE_SUPPORT_EMAIL`        | Support inbox                      |
-| `VITE_API_BASE_URL`         | Reserved for a real backend        |
-| `VITE_DEFAULT_CITY`         | Fallback pickup city               |
-| `VITE_ENABLE_MOCK_PAYMENTS` | Keeps checkout in demo mode        |
-
-Values are read once in `src/lib/config.js` rather than scattered across components.
-
-## Pages
-
-| Route                  | What it does                                                            |
-| ---------------------- | ----------------------------------------------------------------------- |
-| `/`                    | Hero with booking search, offers, top cars, stats, perks, reviews, FAQs |
-| `/cars`                | Filter by body, brand, gearbox, fuel, seats and price; sort and search  |
-| `/cars/:carId`         | Gallery, specs, kilometre plans, add-ons, live price breakdown          |
-| `/checkout`            | Driver details, payment method, coupons, order summary                  |
-| `/booking/:reference`  | Confirmation with receipt                                               |
-| `/faq`                 | Searchable, category-filtered accordion                                 |
-| `/about`               | Stats, values, timeline                                                 |
-| `/login`, `/signup`    | Split-screen auth with validation and password strength                 |
-| `*`                    | 404                                                                     |
-
-## Layout
-
-```
-src/
-  components/
-    auth/       shell shared by login and signup
-    booking/    search widget and the date-range calendar
-  hooks/        useMediaQuery, useClickOutside
-    cars/       car card and filter panel
-    home/       one file per home page section
-    layout/     navbar, footer, page shell, breadcrumb header
-    ui/         button, badge, accordion, rating, counter, reveal, skeleton
-  data/         car catalogue, offers, FAQs, testimonials
-  lib/          config, pricing maths, formatting helpers
-  pages/        one file per route
-  store/        Zustand stores for auth and booking
-public/images/  car photography and hero shots
-legacy/         the original HTML/CSS/Bootstrap build, kept for reference
-```
-
-## Notes
-
-- There is no backend. Accounts, bookings and search state live in `localStorage`, so the demo
-  works offline. Passwords are stored unhashed in the browser — fine for a demo, never for
-  production.
-- Checkout is simulated. No card is charged and no data leaves the browser.
-- Prices derive from a single base rate per car in `src/data/cars.js`; the shorter kilometre plans
-  are calculated from it so a car's three prices can never drift apart.
-- Dates are handled as local `YYYY-MM-DD` strings throughout. `src/lib/utils.js` parses and formats
-  them from local date components rather than `toISOString()`, which would shift the day by one
-  either side of UTC.
-- The `legacy/` folder is the previous static site. Its pages reference `./images/`, which now
-  lives in `public/`, so those files are an archive rather than a runnable site.
-- Cars are drawn as **vector models**, not photos. `src/components/cars/CarModel.jsx` holds four
-  side-profile bodies (hatchback, sedan, SUV, MUV) and `src/lib/color.js` builds a multi-stop paint
-  ramp — sky reflection on top, a sharp horizon band, darker lower panels and ground bounce — from
-  each car's hex colour. That keeps every card consistent, transparent and sharp at any size.
-  To swap in real studio cutouts later, drop PNGs in `public/images/models/` and render an `<img>`
-  in `CarStage.jsx` instead of `<CarModel>`.
-- The old Wikimedia photos are still in `public/images/cars/` but are no longer referenced.
-  Credits for them remain in `public/images/cars/CREDITS.md`.
-
-Not affiliated with Revv. Built as a learning project.
