@@ -36,6 +36,8 @@
   --animate-marquee: marquee 32s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-drift: drift 22s ease-in-out infinite;
+  --animate-drift-slow: drift 30s ease-in-out infinite reverse;
 }
 
 @keyframes marquee {
@@ -54,6 +56,19 @@
   }
   50% {
     transform: translateY(-14px);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -6%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-5%, 4%, 0) scale(0.95);
   }
 }
 
@@ -107,6 +122,20 @@
 
   .field-input {
     @apply w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm font-medium text-ink-900 transition placeholder:text-ink-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 focus:outline-none;
+  }
+
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgb(3 105 161 / 0.13) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(3 105 161 / 0.13) 1px, transparent 1px);
+    background-size: 3.5rem 3.5rem;
+    mask-image: radial-gradient(130% 95% at 50% 0%, black 5%, transparent 80%);
+  }
+
+  .hero-dots {
+    background-image: radial-gradient(rgb(2 132 199 / 0.3) 1px, transparent 1px);
+    background-size: 1.5rem 1.5rem;
+    mask-image: radial-gradient(75% 70% at 80% 80%, black, transparent 72%);
   }
 
   .skeleton {
